@@ -23,5 +23,8 @@ module RailsSite
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # allow other LAN devices to see rails web console errors
+    config.web_console.permissions = "192.168.0.0/16"
   end
 end
