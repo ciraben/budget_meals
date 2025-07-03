@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_02_145645) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_03_002954) do
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.decimal "price_per_unit"
@@ -24,4 +24,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_02_145645) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "recipe_components", force: :cascade do |t|
+    t.decimal "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "meal_id", null: false
+    t.integer "ingredient_id", null: false
+    t.index ["ingredient_id"], name: "index_recipe_components_on_ingredient_id"
+    t.index ["meal_id"], name: "index_recipe_components_on_meal_id"
+  end
+
+  add_foreign_key "recipe_components", "ingredients"
+  add_foreign_key "recipe_components", "meals"
 end
