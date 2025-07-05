@@ -11,11 +11,11 @@ meal_titles.forEach(function(title) {
   }
 
   title.addEventListener('click', e => {
-    if (meal_details.style.display !== 'initial') {
-          meal_details.style.display = 'initial';
+    if (meal_details.style.maxHeight !== '600px') {
+          meal_details.style.maxHeight = '600px';
     }
     else {
-        meal_details.style.display = 'none';
+        meal_details.style.maxHeight = '0';
     }
   });
 });

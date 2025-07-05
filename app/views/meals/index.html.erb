@@ -2,27 +2,34 @@
   <h1>Meals#index</h1>
 
   <% @meals.each do |meal| %>
-    <h2 class="meal-title font-bold">
-      <span class="underline"><%= meal.name %></span>
-      &ndash;
-      <%= number_to_currency meal.total_cost %>
-    </h2>
+    <article class="w-80 flex flex-col items-center rounded-md bg-[#fcf6b0] p-2">
+      <h2 class="meal-title w-full text-center font-bold">
+        <span class="underline"><%= meal.name %></span>
+        &ndash;
+        <%= number_to_currency meal.total_cost %>
+      </h2>
 
-    <ul class="meal-details w-80 hidden">
-      <% for component in meal.recipe do %>
-        <li class="flex justify-between">
-            <span>
-              <%= format_quantity component.amount %>
-              <%= component.ingredient.unit %>
-              <%= component.ingredient.name %>
-            </span>
-            <span>
-              <%= number_to_currency component.cost %>
-            </span>
-        </li>
-      <% end %>
-    </ul>
+      <ul class="meal-details w-full max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+        <% for component in meal.recipe do %>
+          <li class="flex justify-between">
+              <span>
+                <%= format_quantity component.amount %>
+                <%= component.ingredient.unit %>
+                <%= component.ingredient.name %>
+              </span>
+              <span>
+                <%= number_to_currency component.cost %>
+              </span>
+          </li>
+        <% end %>
+      </ul>
+    </article>
+
   <% end %>
 </div>
 
 <%= javascript_include_tag 'meals.js' %>
+
+<%# yellow - 252, 246, 177 #fcf6b0
+blue - 136, 182, 182 #87b5b5
+red - 208, 157, 112 #d09d70 %>
