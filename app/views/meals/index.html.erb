@@ -2,8 +2,8 @@
   <h1>Meals#index</h1>
 
   <% @meals.each do |meal| %>
-    <h2 class="font-bold underline"><%= meal.name %></h2>
-    <ul class="w-80">
+    <h2 class="meal-title font-bold underline"><%= meal.name %></h2>
+    <ul class="meal-details w-80 hidden">
       <% for component in meal.recipe do %>
         <li class="flex justify-between">
             <span>
@@ -19,3 +19,5 @@
     </ul>
   <% end %>
 </div>
+
+<%= javascript_include_tag 'meals.js' %>
