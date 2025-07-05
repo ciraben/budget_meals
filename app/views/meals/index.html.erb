@@ -2,17 +2,22 @@
   <h1>Meals#index</h1>
 
   <% @meals.each do |meal| %>
-    <h2 class="meal-title font-bold underline"><%= meal.name %></h2>
+    <h2 class="meal-title font-bold">
+      <span class="underline"><%= meal.name %></span>
+      &ndash;
+      <%= number_to_currency meal.total_cost %>
+    </h2>
+
     <ul class="meal-details w-80 hidden">
       <% for component in meal.recipe do %>
         <li class="flex justify-between">
             <span>
-              <%= component[:amount] %>
-              <%= component[:unit] %>
-              <%= component[:ingredient] %>
+              <%= format_quantity component.amount %>
+              <%= component.ingredient.unit %>
+              <%= component.ingredient.name %>
             </span>
             <span>
-              <%= number_to_currency component[:cost] %>
+              <%= number_to_currency component.cost %>
             </span>
         </li>
       <% end %>
