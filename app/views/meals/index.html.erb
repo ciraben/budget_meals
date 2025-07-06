@@ -15,7 +15,10 @@
               <span>
                 <%= format_quantity component.amount %>
                 <%= component.ingredient.unit %>
-                <%= component.ingredient.name %>
+                <%= link_to component.ingredient.name,
+                  edit_ingredient_path(component.ingredient),
+                  class: ""
+                %>
               </span>
               <span>
                 <%= number_to_currency component.cost %>

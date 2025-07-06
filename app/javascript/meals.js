@@ -1,4 +1,4 @@
-const meal_titles = document.querySelectorAll(".meal-title");
+var meal_titles = document.querySelectorAll(".meal-title");
 
 meal_titles.forEach(function(title) {
   let meal_details = title.nextElementSibling;
