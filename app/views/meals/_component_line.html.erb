@@ -2,12 +2,15 @@
   <span>
     <%= format_quantity component.amount %>
     <%= component.ingredient.unit %>
-    <%= link_to component.ingredient.name,
-      edit_ingredient_path(component.ingredient),
-      class: ""
-    %>
+    <button class="edit-ingredient">
+      <%= component.ingredient.name %>
+    </button>
   </span>
   <span>
     <%= number_to_currency component.cost %>
   </span>
+
+  <div data-component-id="<%= component.id %>" class="component-form hidden fixed top-0 left-0 w-[100vw] h-[100vh]">
+    <%= render "ingredients/edit_form_overlay", ingredient: component.ingredient %>
+  </div>
 </li>
