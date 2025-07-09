@@ -11,7 +11,14 @@ class IngredientsController < ApplicationController
 
   private
 
+  def safe_params
+    params.expect(ingredient: [ :price, :per, :unit ])
+  end
+
   def ingredient_params
-    params.expect(ingredient: [ :price_per_unit, :unit ])
+    {
+      price_per_unit: safe_params[:price].to_d / safe_params[:per].to_d,
+      unit: safe_params[:unit]
+    }
   end
 end
