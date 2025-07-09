@@ -1,0 +1,43 @@
+{
+  nachos: {
+    tortilla_chips: 1,
+    cheddar_cheese: .35,
+    red_pepper: .25,
+    green_onion: .25,
+    soy_beans: .1
+  },
+  pizza: {
+    pizzas: 2,
+    mozzarella_cheese: .5,
+    onion: .1,
+    green_pepper: .25,
+    walnuts: .2,
+    feta_cheese: .1,
+    red_pepper: .125
+  },
+  stir_fry: {
+    broccoli: 1,
+    carrots: 1,
+    zucchini: .5,
+    green_onion: .5,
+    cashews: 200,
+    rice: 1,
+    oyster_sauce: 60,
+    soy_sauce: 30
+  },
+  pad_thai: {
+    broccoli: 1,
+    green_onion: 1,
+    bean_sprouts: 1,
+    red_pepper: .25,
+    prawns: .3,
+    pad_thai_sauce: 125,
+    peanuts: 150,
+    ginger: 1,
+    garlic: .5,
+    rice_noodles: .5,
+    soy_sauce: 30,
+    chili_peppers: .1,
+    egg: 1
+  }
+}
