@@ -1,0 +1,14 @@
+<h1><%= ingredient.name %></h1>
+
+<%= form_with model: ingredient do |form| %>
+  <div>
+    <%= form.label :price_per_unit %>
+    <%= form.number_field :price_per_unit %>
+    <%= form.label :unit %>
+    <%= form.text_field :unit %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

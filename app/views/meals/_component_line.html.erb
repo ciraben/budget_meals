@@ -1,0 +1,13 @@
+<li class="flex justify-between">
+  <span>
+    <%= format_quantity component.amount %>
+    <%= component.ingredient.unit %>
+    <%= link_to component.ingredient.name,
+      edit_ingredient_path(component.ingredient),
+      class: ""
+    %>
+  </span>
+  <span>
+    <%= number_to_currency component.cost %>
+  </span>
+</li>
