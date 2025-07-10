@@ -6,11 +6,14 @@
   <%= form_with model: ingredient, html: {class: "flex flex-col gap-2"} do |form| %>
     <div>
       <%= form.label "Price" %>
-      <%= form.number_field :price, class: form_field_styles %>
+      <%= form.number_field :price,
+        value: ingredient.price_per_unit,
+        class: form_field_styles
+      %>
     </div>
     <div>
       <%= form.label "Qty" %>
-      <%= form.number_field :per, class: form_field_styles %>
+      <%= form.number_field :per, value: 1, class: form_field_styles %>
     </div>
     <div>
       <%= form.label "Unit" %>
