@@ -7,20 +7,15 @@
     <div>
       <%= form.label "Price" %>
       <%= form.number_field :price,
-        value: ingredient.price_per_unit,
+        value: ingredient.price,
         min: 0,
         step: "any",
         class: form_field_styles
       %>
     </div>
     <div>
-      <%= form.label "Qty" %>
-      <%= form.number_field :per,
-        value: 1,
-        min: 1,
-        step: "any",
-        class: form_field_styles
-      %>
+      <%= form.label "Per" %>
+      <%= form.number_field :quantity, min: 1, class: form_field_styles %>
     </div>
     <div>
       <%= form.label "Unit" %>

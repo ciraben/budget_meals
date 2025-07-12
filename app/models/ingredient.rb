@@ -1,12 +1,21 @@
 class Ingredient < ApplicationRecord
   validates :name, presence: true, uniqueness: true
-  after_save :change_blank_ppu_to_zero
+  after_save :change_blank_price_to_zero
+  after_save :change_blank_quantity_to_one
   after_create :change_blank_units_to_tbd
+
+  def price_per_unit
+    price / quantity
+  end
 
   private
 
-  def change_blank_ppu_to_zero
-    self.price_per_unit = price_per_unit.presence || 0
+  def change_blank_price_to_zero
+    self.price = price.presence || 0
+  end
+
+  def change_blank_quantity_to_one
+    self.quantity = quantity.presence || 1
   end
 
   def change_blank_units_to_tbd

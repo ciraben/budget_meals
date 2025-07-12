@@ -17,12 +17,7 @@ def parse_match(match)
   match[1].scan(ing_re).each do |m|
     ing_name = parse_name m[0]
     ing_amt = m[1][0] == "." ? "0" << m[1] : m[1]
-    ingredient = Ingredient.find_by(name: ing_name)
-    if !ingredient
-      ingredient = Ingredient.create(
-        name: ing_name, price_per_unit: 0, unit: "tbd"
-      )
-    end
+    ingredient = Ingredient.create_or_find_by(name: ing_name)
 
     RecipeComponent.create(
       amount: ing_amt,
